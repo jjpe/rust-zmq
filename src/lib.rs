@@ -267,6 +267,7 @@ impl Error {
     pub fn from_raw(raw: i32) -> Error {
         #![cfg_attr(feature = "clippy", allow(match_same_arms))]
         match raw {
+            4 => Error::EINTR,
             errno::EACCES             => Error::EACCES,
             errno::EADDRINUSE         => Error::EADDRINUSE,
             errno::EAGAIN             => Error::EAGAIN,
